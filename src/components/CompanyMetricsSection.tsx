@@ -8,19 +8,19 @@ const CompanyMetricsSection: React.FC = () => {
   const stats = [
     {
       label: "Smart Meters Deployed",
-      value: "50,000+",
+      value: "500+",
       icon: Zap,
       desc: "Providing reliable utility management across the continent.",
     },
     {
       label: "Enterprise Customers",
-      value: "1,200+",
+      value: "120+",
       icon: Users,
       desc: "Trusted by property managers, utilities, and organizations.",
     },
     {
       label: "Innovation Hubs",
-      value: "10+",
+      value: "6+",
       icon: Globe,
       desc: "Operating in major tech centers to drive local utility innovation.",
     },
@@ -84,15 +84,15 @@ const CompanyMetricsSection: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-emerald-500/30 transition-all group"
+                  className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-gray-500/30 transition-all group"
                 >
-                  <div className="mb-6 p-3 w-fit rounded-xl bg-emerald-600/5 dark:bg-emerald-600/10 border border-emerald-600/10">
-                    <Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  <div className="mb-6 p-3 w-fit rounded-xl bg-emerald-600/5 dark:bg-gray-600/10 border border-gray-600/10">
+                    <Icon className="w-6 h-6 text-gray-600 dark:text-emerald-400" />
                   </div>
-                  <h4 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter mb-2 group-hover:text-emerald-600 transition-colors">
+                  <h4 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter mb-2 group-hover:text-amber-600 transition-colors">
                     {stat.value}
                   </h4>
-                  <p className="text-xs font-black uppercase tracking-widest text-emerald-600 mb-4">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-600 mb-4">
                     {stat.label}
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">

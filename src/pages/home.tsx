@@ -6,7 +6,6 @@ import CompanyMetricsSection from "@/components/CompanyMetricsSection";
 import ProductHighlightSection from "@/components/ProductHighlightSection";
 import PartnersSection from "@/components/PartnersSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import ServicesSection from "@/components/ServicesSection";
 
 
@@ -22,7 +21,6 @@ const Home: React.FC = () => {
       <CompanyMetricsSection />
       <ProductHighlightSection />
       <PartnersSection />
-      <WhyChooseUsSection />
       <ServicesSection />
       <TestimonialsSection />
     </main>

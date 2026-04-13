@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowDownRight, Award, Clock, Settings, Users, ArrowRight } from "lucide-react";
+import { Award, Clock, Settings, Users, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 
 const About: React.FC = () => {
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 text-gray-600 dark:text-gray-400 text-lg leading-relaxed pt-8 border-t border-gray-100 dark:border-gray-800">
               <div className="space-y-6">
                 <p>
-                <strong>TokenPap System</strong> (formerly Millenium Solutions EA) is a dynamic Enterprise Utility IT company, delivering best-in-class industrial solutions. Powered by an innovation-driven workforce, we combine youthful energy with an unwavering focus on engineering precision.
+                <strong>TokenPap</strong> is a dynamic Enterprise Utility IT company, delivering best-in-class industrial solutions. Powered by an innovation-driven workforce, we combine youthful energy with an unwavering focus on engineering precision.
                 </p>
                 <p>
                 We serve as a versatile partner, working with major global OEMs in Smart Grid Infrastructure, Enterprise Applications, Connectivity, Power Solutions, and Industrial Security. Our mission is to bridge the gap between legacy utilities and digital informatization.

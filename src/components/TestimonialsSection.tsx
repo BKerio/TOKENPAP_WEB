@@ -1,9 +1,7 @@
 // src/components/TestimonialsSection.tsx
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+import { Star, Twitter, Linkedin } from "lucide-react";
 import { testimonials as rawTestimonialsData } from "@/data";
-import SectionHeader from "./SectionHeader";
 
 interface Testimonial {
   id: number | string;
@@ -19,175 +17,180 @@ const testimonialsData: Testimonial[] = rawTestimonialsData.map((t, i) => ({
   id: t.id ?? i,
 }));
 
+// Highlight words/phrases inspired by ferryman.io
+const HIGHLIGHT_MAP: Record<string, string> = {
+  "exceeded our expectations": "bg-yellow-100 dark:bg-yellow-900/30",
+  "outstanding results": "bg-yellow-100 dark:bg-yellow-900/30",
+  "remarkable": "bg-yellow-100 dark:bg-yellow-900/30",
+  "seamless": "bg-emerald-100 dark:bg-emerald-900/20",
+  "modernize": "bg-blue-100 dark:bg-blue-900/20",
+  "technical expertise": "bg-indigo-100 dark:bg-indigo-900/20",
+  "efficiency": "bg-yellow-100 dark:bg-yellow-900/30",
+  "professionalism": "bg-purple-100 dark:bg-purple-900/20",
+  "transformed": "bg-blue-100 dark:bg-blue-900/20",
+  "future-ready": "bg-emerald-100 dark:bg-emerald-900/20",
+  "reliable": "bg-amber-100 dark:bg-amber-900/20",
+};
+
+const formatMessage = (message: string) => {
+  let formatted = message;
+  Object.keys(HIGHLIGHT_MAP).forEach((phrase) => {
+    const regex = new RegExp(`(${phrase})`, "gi");
+    formatted = formatted.replace(
+      regex,
+      `<mark class="px-0.5 rounded-sm bg-transparent font-semibold border-b-2 border-yellow-400/50 dark:border-yellow-500/50">$1</mark>`
+    );
+  });
+  return <span dangerouslySetInnerHTML={{ __html: formatted }} />;
+};
+
 const renderStars = (count: number) => {
   const clamped = Math.max(0, Math.min(5, count));
   return Array.from({ length: 5 }, (_, i) => (
     <Star
       key={i}
-      className={`h-3.5 w-3.5 ${i < clamped ? "text-amber-400 fill-current" : "text-gray-300 dark:text-gray-600"}`}
+      className={`h-3 w-3 ${i < clamped ? "text-amber-500 fill-current" : "text-gray-200 dark:text-gray-700"}`}
     />
   ));
 };
 
-const TestimonialsSection: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-  const [dir, setDir] = useState(0);
-
-  // Show 3 cards at a time on desktop, 1 on mobile
-  const CARDS_VISIBLE = 3;
-  const total = testimonialsData.length;
-
-  useEffect(() => {
-    if (!total) return;
-    const timer = setInterval(() => {
-      setDir(1);
-      setCurrent((c) => (c + 1) % total);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [total]);
-
-  if (!total) return null;
-
-  const handlePrev = () => {
-    setDir(-1);
-    setCurrent((c) => (c === 0 ? total - 1 : c - 1));
-  };
-  const handleNext = () => {
-    setDir(1);
-    setCurrent((c) => (c + 1) % total);
-  };
-
-  // Get indices for the 3 visible cards
-  const visibleIndices = Array.from({ length: CARDS_VISIBLE }, (_, i) => (current + i) % total);
-
-  const slipVariants = {
-    enter: (d: number) => ({ opacity: 0, x: d > 0 ? 60 : -60 }),
-    center: { opacity: 1, x: 0, transition: { type: "spring" as const, stiffness: 280, damping: 28 } },
-    exit: (d: number) => ({ opacity: 0, x: d < 0 ? 60 : -60, transition: { duration: 0.2 } }),
-  };
+const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = ({ testimonial, index }) => {
+  const PlatformIcon = index % 2 === 0 ? Twitter : Linkedin;
 
   return (
-    <section className="relative py-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-      {/* Mesh Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-10 dark:opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="mesh-pattern-testimonials" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-gray-400 dark:text-gray-500" />
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#mesh-pattern-testimonials)" />
-        </svg>
+    <div className="p-6 rounded-[2rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800/50 shadow-sm hover:shadow-xl transition-all duration-300 relative group mb-6">
+      <PlatformIcon className="absolute top-6 right-6 h-4 w-4 text-gray-200 dark:text-gray-800 group-hover:text-blue-500/30 transition-colors" />
+      <div className="flex gap-0.5 mb-4">
+        {renderStars(testimonial.rating)}
+      </div>
+      <blockquote className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-6">
+        {formatMessage(testimonial.message)}
+      </blockquote>
+      <div className="flex items-center gap-3">
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-50 dark:ring-gray-900 grayscale hover:grayscale-0 transition-all duration-300 shadow-sm"
+        />
+        <div className="min-w-0">
+          <p className="text-sm font-bold text-gray-900 dark:text-white truncate">
+            {testimonial.name}
+          </p>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">Verified Partner</span>
+            <div className="w-1 h-1 rounded-full bg-blue-500" />
+            <span className="text-[10px] text-blue-500 dark:text-blue-400">@tokenpap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MarqueeColumn: React.FC<{
+    testimonials: Testimonial[];
+    direction?: "up" | "down";
+    duration?: number;
+    className?: string;
+  }> = ({ testimonials, direction = "up", duration = 40, className = "" }) => {
+    const animationClass = direction === "up" ? "animate-marquee-up" : "animate-marquee-down";
+    
+    return (
+      <div className={`flex flex-col gap-6 overflow-hidden ${className}`}>
+        {/* Style tag for custom marquee animations */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes marquee-up {
+            from { transform: translateY(0); }
+            to { transform: translateY(-50%); }
+          }
+          @keyframes marquee-down {
+            from { transform: translateY(-50%); }
+            to { transform: translateY(0); }
+          }
+          .animate-marquee-up {
+            animation: marquee-up ${duration}s linear infinite;
+          }
+          .animate-marquee-down {
+            animation: marquee-down ${duration}s linear infinite;
+          }
+        `}} />
+        
+        <div 
+          className={`flex flex-col gap-6 ${animationClass} hover:[animation-play-state:paused] h-fit`}
+        >
+          {/* Duplicate set for seamless looping */}
+          {[...testimonials, ...testimonials].map((t, i) => (
+            <TestimonialCard key={`${t.id}-${i}`} testimonial={t} index={i} />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+const TestimonialsSection: React.FC = () => {
+  // Split data into 3 chunks for the columns
+  const col1 = testimonialsData.filter((_, i) => i % 3 === 0);
+  const col2 = testimonialsData.filter((_, i) => i % 3 === 1);
+  const col3 = testimonialsData.filter((_, i) => i % 3 === 2);
+
+  return (
+    <section className="relative py-24 bg-[#FCFCFD] dark:bg-[#030712] overflow-hidden border-t border-gray-100 dark:border-gray-900">
+      {/* Background patterns */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20 dark:opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px]" />
       </div>
 
-      {/* Ambient Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-20 w-96 h-48 bg-red-600/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeader 
-          title="Clients Voice" 
-          subtitle="Trusted by leading organizations across the continent. Our systems empower growth through reliable utility management."
-          align="center"
-        />
+        <div className="mb-20 text-center">
+            <h2 className="text-gray-900 dark:text-white text-4xl md:text-5xl font-black tracking-tight mb-4">
+              Real Impact. Real Results.
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto font-medium">
+              Join the elite institutions across Africa leveraging TokenPap's intelligent utility systems.
+            </p>
+        </div>
 
-        {/* Cards Area */}
-        <div className="relative">
-          {/* Desktop: 3 cards */}
-          <div className="hidden md:grid grid-cols-3 gap-4">
-            <AnimatePresence custom={dir} mode="popLayout">
-              {visibleIndices.map((idx, pos) => {
-                const d = testimonialsData[idx];
-                const isCenter = pos === 1;
-                return (
-                  <motion.div
-                    key={`${d.id}-${pos}`}
-                    custom={dir}
-                    variants={slipVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className={`relative flex flex-col bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-5 border transition-all duration-300 shadow-md
-                      ${isCenter
-                        ? "border-red-200 dark:border-red-900/60 shadow-lg shadow-red-500/10 scale-[1.02]"
-                        : "border-gray-100 dark:border-gray-700/60 opacity-80"
-                      }`}
-                  >
-                    {/* Big Quote */}
-                    <Quote className="absolute top-3 right-4 w-10 h-10 text-red-500/10 dark:text-red-400/10 rotate-180" />
-
-                    {/* Stars */}
-                    <div className="flex gap-0.5 mb-3">{renderStars(d.rating)}</div>
-
-                    {/* Quote */}
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed italic flex-grow mb-4">
-                      "{d.message}"
-                    </p>
-
-                    {/* Author */}
-                    <div className="flex items-center gap-3 mt-auto pt-3 border-t border-gray-100 dark:border-gray-700/50">
-                      <img
-                        src={d.image}
-                        alt={d.name}
-                        className="w-10 h-10 rounded-full object-cover ring-2 ring-red-100 dark:ring-red-900/40"
-                        loading="lazy"
-                      />
-                      <div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white leading-tight">{d.name}</p>
-                        {d.title && <p className="text-xs text-gray-500 dark:text-gray-400">{d.title}</p>}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
+        {/* The Parallax Wall with Edge Fading */}
+        <div 
+          className="relative h-[800px] overflow-hidden" 
+          style={{ 
+            maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)"
+          }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
+            {/* Column 1: Down */}
+            <MarqueeColumn testimonials={col1} direction="down" duration={50} />
+            
+            {/* Column 2: Up (Hidden on small mobile, shown on md+) */}
+            <MarqueeColumn testimonials={col2} direction="up" duration={45} className="hidden md:flex" />
+            
+            {/* Column 3: Up (Hidden on tablet, shown on lg+) */}
+            <MarqueeColumn testimonials={col3} direction="up" duration={55} className="hidden lg:flex" />
           </div>
+        </div>
 
-          {/* Mobile: 1 card */}
-          <div className="md:hidden">
-            <AnimatePresence custom={dir} mode="wait">
-              {(() => {
-                const d = testimonialsData[current];
-                return (
-                  <motion.div
-                    key={d.id}
-                    custom={dir}
-                    variants={slipVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className="relative bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-5 border border-gray-100 dark:border-gray-700/60 shadow-lg"
-                  >
-                    <Quote className="absolute top-3 right-4 w-10 h-10 text-red-500/10 dark:text-red-400/10 rotate-180" />
-                    <div className="flex gap-0.5 mb-3">{renderStars(d.rating)}</div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed italic mb-4">"{d.message}"</p>
-                    <div className="flex items-center gap-3 pt-3 border-t border-gray-100 dark:border-gray-700/50">
-                      <img src={d.image} alt={d.name} className="w-10 h-10 rounded-full object-cover ring-2 ring-red-100 dark:ring-red-900/40" loading="lazy" />
-                      <div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">{d.name}</p>
-                        {d.title && <p className="text-xs text-gray-500 dark:text-gray-400">{d.title}</p>}
-                      </div>
+        {/* Global Trust Meter */}
+        <div className="mt-20 flex flex-col items-center justify-center gap-6">
+            <div className="bg-gray-900 dark:bg-gray-800 rounded-full py-2 px-6 flex items-center gap-3 border border-gray-800 shadow-2xl">
+                <div className="flex -space-x-3">
+                    {testimonialsData.slice(0, 4).map((t) => (
+                    <img 
+                        key={t.id} 
+                        src={t.image} 
+                        className="w-10 h-10 rounded-full border-2 border-gray-900 dark:border-gray-800" 
+                        alt="" 
+                    />
+                    ))}
+                    <div className="w-10 h-10 rounded-full bg-red-600 border-2 border-gray-900 flex items-center justify-center text-[10px] font-black text-white">
+                    +15
                     </div>
-                  </motion.div>
-                );
-              })()}
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation arrows */}
-          <button
-            onClick={handlePrev}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white dark:bg-gray-700 rounded-full shadow-md border border-gray-100 dark:border-gray-600 flex items-center justify-center hover:scale-110 transition-transform"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white dark:bg-gray-700 rounded-full shadow-md border border-gray-100 dark:border-gray-600 flex items-center justify-center hover:scale-110 transition-transform"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-          </button>
+                </div>
+                <div className="h-6 w-px bg-gray-500" />
+                <p className="text-white text-sm font-bold tracking-tight">
+                    Trusted by <span className="text-red-500">500+</span> Customers
+                </p>
+            </div>
         </div>
       </div>
     </section>

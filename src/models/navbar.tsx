@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Twitter, Facebook, Linkedin, ArrowUpRightFromCircle, ChevronDownCircle, DownloadIcon, Search, Mail, Phone } from "lucide-react";
+import { Menu, X, ArrowUpRightFromCircle, ChevronDownCircle, DownloadIcon, Search, Mail, Phone } from "lucide-react";
 import { ThemeToggle } from "@/models/theme-toggle";
 import SearchModal from "@/components/SearchModal";
 import { Button } from "@/models/ui/button";
@@ -135,7 +135,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about", dropdown: [{ name: "Our Story", path: "/about" }, { name: "Our Methodology", path: "/methodology" }, { name: "Our Team Structure", path: "/teamstructure" },] },
+    { name: "About Us", path: "/about" },
     { 
       name: "Products", 
       path: "/products", 
@@ -178,7 +178,7 @@ const Navbar = () => {
       <header className={`fixed top-0 left-0 w-full z-50 transition-all ${isVisible ? 'translate-y-0 opacity-100 duration-150 ease-out' : '-translate-y-full opacity-0 duration-300 ease-in'}`}>
         {/* TOP BAR — Acrel-inspired dark strip */}
         <div
-          className="w-full bg-gray-600 border-b border-white/10"
+          className="w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800"
           style={{ minHeight: `${coverageBarHeight}px` }}
         >
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-full flex flex-wrap items-center justify-between gap-y-1" style={{ minHeight: `${coverageBarHeight}px` }}>
@@ -189,20 +189,22 @@ const Navbar = () => {
                 <img src={KenyaFlag} draggable={false} alt="Kenya"
                   className="h-7 w-7 rounded-full object-cover ring-1 ring-white/30 flex-shrink-0"
                 />
-                <span className="text-[11px] font-semibold text-white/50 uppercase tracking-widest whitespace-nowrap">Kenya</span>
+                <span className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap">Kenya</span>
               </div>
-              <span className="hidden sm:block text-white/20 select-none">|</span>
+              <span className="hidden sm:block text-gray-300 dark:text-gray-700 select-none">|</span>
               <a href="mailto:info@tokenpap.com"
-                className="flex items-center gap-x-1.5 text-[12px] text-white/60 hover:text-emerald-400 transition-colors">
-                <Mail className="h-3 w-3 flex-shrink-0" />
-                <span>info@tokenpap.com</span>
-              </a>
-              <span className="hidden sm:block text-white/20 select-none">|</span>
-              <a href="tel:+254741099909"
-                className="flex items-center gap-x-1.5 text-[12px] text-white/60 hover:text-emerald-400 transition-colors">
-                <Phone className="h-3 w-3 flex-shrink-0" />
-                <span>+254 741 099 909</span>
-              </a>
+                 className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                 <Mail className="h-4 w-4 flex-shrink-0" />
+                 <span>info@tokenpap.com</span>
+               </a>
+               
+               <span className="hidden sm:block text-gray-300 dark:text-gray-700 select-none">|</span>
+               
+               <a href="tel:+254741099909"
+                 className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                 <Phone className="h-4 w-4 flex-shrink-0" />
+                 <span>+254 741 099 909</span>
+               </a>
             </div>
 
             {/* Right: CTA */}
@@ -246,8 +248,8 @@ const Navbar = () => {
                       to={link.path}
                       className={`flex items-center px-3 py-2 rounded-md text-[0.8rem] font-semibold uppercase tracking-wide transition-colors ${
                         (location.pathname.startsWith(link.path) && link.path !== '/') || location.pathname === link.path
-                          ? "text-red-600 dark:text-red-500"
-                          : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                          ? "text-amber-600 dark:text-amber-500"
+                          : "text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400"
                       }`}
                     >
                       {link.name}

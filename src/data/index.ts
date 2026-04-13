@@ -5,7 +5,7 @@ import { Cpu, Shield, WifiIcon, Code } from "lucide-react";
 import HeroImage1 from "@/assets/africa.avif";
 import HeroImage2 from "@/assets/innovate.avif";
 import HeroImage3 from "@/assets/savannah.avif";
-import HeroImage4 from "@/assets/drone.avif";
+import HeroImage4 from "@/assets/meters.avif";
 import HeroImage5 from "@/assets/iso.avif";
 
 import FeaturedImage1 from "@/assets/data-center.avif";

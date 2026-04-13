@@ -58,12 +58,12 @@ const HeroSection: React.FC = () => {
 
       {/* Slide Counter — Technical Layout */}
       <div className="absolute top-8 right-8 z-20">
-        <div className="flex flex-col items-end border-r-4 border-emerald-600 pr-4">
+        <div className="flex flex-col items-end border-r-4 border-amber-600 pr-4">
           <span className="text-[10px] font-black text-white/50 uppercase tracking-[0.3em]">Phase</span>
           <div className="text-4xl font-black text-white leading-none">
             0{currentSlide + 1}
           </div>
-          <div className="h-[2px] w-12 bg-emerald-600 mt-1" />
+          <div className="h-[2px] w-12 bg-amber-600 mt-1" />
         </div>
       </div>
 

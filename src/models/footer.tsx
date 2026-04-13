@@ -1,18 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { 
-  Coins, 
   Facebook, 
   Twitter, 
   Linkedin, 
   Youtube, 
-  ArrowRight,
   ChevronUp,
   MapPin,
   Phone,
   Mail
 } from "lucide-react";
-import Logo from "@/assets/logo(white).png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -33,11 +30,13 @@ const Footer: React.FC = () => {
           
           {/* Column 1: Mission & News */}
           <div className="space-y-8">
-            <Link to="/" className="inline-block">
-              <img src={Logo} alt="TokenPap" className="h-10 w-auto brightness-110" />
+            <Link to="/" className="inline-block group">
+              <span className="text-3xl font-black text-white tracking-tighter uppercase transition-colors group-hover:text-emerald-500">
+                TokenPap
+              </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs text-gray-400">
-              Leading the digital transformation of utility management across East Africa with industrial-grade precision and systemic innovation.
+               Smart Metering & Vending Solution
             </p>
             <div className="space-y-4">
               <p className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500">Subscribe for Updates</p>
@@ -71,7 +70,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-6 text-xs text-gray-400">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>Nairobi, Kenya<br/>Silicon Savannah Plaza</span>
+                <span>Nairobi, Kenya<br/>Kiambere Road, Upper Hill</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -105,7 +104,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4 text-[10px] font-black uppercase tracking-widest text-gray-500">
-            <p>&copy; {currentYear} TOKENPAP SYSTEM. ALL RIGHTS RESERVED.</p>
+            <p>&copy; {currentYear} TOKENPAP. ALL RIGHTS RESERVED.</p>
             <span className="hidden md:block opacity-20">|</span>
             <div className="flex gap-4">
               <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>

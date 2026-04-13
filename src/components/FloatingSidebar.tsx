@@ -13,7 +13,7 @@ const FloatingSidebar: React.FC = () => {
       label: "Call Us",
       value: "+254 741 099 909",
       href: "tel:+254741099909",
-      color: "bg-emerald-600 hover:bg-emerald-500",
+      color: "bg-gray-800 hover:bg-gray-700",
     },
     {
       icon: Mail,
@@ -27,14 +27,18 @@ const FloatingSidebar: React.FC = () => {
       label: "WhatsApp",
       value: "Chat with us",
       href: "https://wa.me/254741099909",
-      color: "bg-[#25D366] hover:bg-[#1EBC57]",
+      color: "bg-gray-800 hover:bg-gray-700",
     },
   ];
 
   return (
     <>
       {/* Tab trigger */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex items-center">
+      <div 
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex items-center"
+      >
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -80,22 +84,6 @@ const FloatingSidebar: React.FC = () => {
                   </div>
                 </a>
               ))}
-
-              {/* Agent card */}
-              <div className="mt-2 pt-3 border-t border-gray-100 dark:border-gray-800">
-                <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center">
-                    <span className="text-emerald-700 dark:text-emerald-400 text-xs font-black">TP</span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-800 dark:text-gray-100">TokenPap Support</p>
-                    <div className="flex items-center gap-1 mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400">Online now</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
