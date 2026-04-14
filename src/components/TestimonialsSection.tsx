@@ -183,12 +183,12 @@ const TestimonialsSection: React.FC = () => {
                     />
                     ))}
                     <div className="w-10 h-10 rounded-full bg-red-600 border-2 border-gray-900 flex items-center justify-center text-[10px] font-black text-white">
-                    +15
+                    +7
                     </div>
                 </div>
                 <div className="h-6 w-px bg-gray-500" />
                 <p className="text-white text-sm font-bold tracking-tight">
-                    Trusted by <span className="text-red-500">500+</span> Customers
+                    Trusted by <span className="text-red-500">100 Plus</span> Customers
                 </p>
             </div>
         </div>

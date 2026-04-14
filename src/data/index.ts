@@ -1,22 +1,23 @@
 // src/data/index.ts
-import { Cpu, Shield, WifiIcon, Code } from "lucide-react";
+import { Home, Building2, Building, Briefcase, Droplets, Landmark, GraduationCap, Factory, Shield, LucideChevronUpSquare } from "lucide-react";
 
 // hero section slides
-import HeroImage1 from "@/assets/africa.avif";
-import HeroImage2 from "@/assets/innovate.avif";
-import HeroImage3 from "@/assets/savannah.avif";
+import HeroImage1 from "@/assets/tokenpap.avif";
+import HeroImage2 from "@/assets/meters1.avif";
+import HeroImage3 from "@/assets/sunset-savannah.avif";
 import HeroImage4 from "@/assets/meters.avif";
-import HeroImage5 from "@/assets/iso.avif";
+import HeroImage5 from "@/assets/4166127.avif";
 
 import FeaturedImage1 from "@/assets/data-center.avif";
 import FeaturedImage2 from "@/assets/cybersec.avif";
 import FeaturedImage3 from "@/assets/ai_case.avif";
 // Local partner logos
-import HuaweiLogo from "@/assets/partners/Picture4.png";
-import DellLogo from "@/assets/partners/Picture2.png";
-import CheckPointLogo from "@/assets/partners/Picture16.png";
-import OracleLogo from "@/assets/partners/Picture5.png";
-import HpeLogo from "@/assets/partners/Picture3.png";
+import TsavoLogo from "@/assets/partners/tsavo.png";
+import KenyaPowerLogo from "@/assets/partners/kenyapower.png";
+import MilleniumLogo from "@/assets/partners/millenium.png";
+import AfosiLogo from "@/assets/partners/afosi_logo.png";
+import SafaricomLogo from "@/assets/partners/safaricom.png";
+import SignvrseLogo from "@/assets/partners/signvrse.png";
 
 
 
@@ -30,23 +31,19 @@ import SignVrse from "@/assets/testimonials/signvrse.png";
 import SRC from "@/assets/testimonials/Picture9.png";
 import IndoEmbassy from "@/assets/testimonials/Picture18.png";
 import KenyaPort from "@/assets/testimonials/Picture1.png";
-import HealthStrat from "@/assets/testimonials/Picture17.png"
 import CooperativeBank from "@/assets/testimonials/Picture3.png";
-import Afosi from "@/assets/testimonials/Picture8.png";
-import KSMS from "@/assets/testimonials/Picture7.png";
-import PCEA from "@/assets/testimonials/Picture10.png";
 import KenyaRailways from "@/assets/testimonials/Picture12.png";
-import KSB from "@/assets/testimonials/Picture19.png";
 
 
 
 
 export const partnersList = [
-  { id: 1, name: "Huawei", logo: HuaweiLogo },
-  { id: 2, name: "Dell", logo: DellLogo },
-  { id: 3, name: "CheckPoint", logo: CheckPointLogo },
-  { id: 4, name: "Oracle", logo: OracleLogo },
-  { id: 5, name: "HPE", logo: HpeLogo },
+  { id: 1, name: "Tsavo Energy", logo: TsavoLogo},
+  { id: 2, name: "Kenya Power", logo: KenyaPowerLogo },
+  { id: 3, name: "Millenium", logo: MilleniumLogo },
+  { id: 4, name: "Afosi", logo: AfosiLogo },
+  { id: 5, name: "Safaricom", logo: SafaricomLogo },
+  { id: 6, name: "Signvrse", logo: SignvrseLogo },
 
 
 
@@ -125,120 +122,157 @@ export const testimonials = [
     message: "Their team created a secure, multilingual events and visa-processing portal for our diplomatic mission. They handled sensitive data with the utmost professionalism and compliance. The resulting system is intuitive for users and has significantly reduced processing times.",
     rating: 5,
   },
-  {
-    id: 11,
-    name: "Health Strat",
-    image: HealthStrat,
-    message: "Working with them elevated our telehealth platform’s reliability and user engagement. They implemented seamless video-consultation features, secure patient records, and real-time analytics dashboards. Their responsive support and medical-grade expertise have been invaluable.",
-    rating: 5,
-  },
-  {
-    id: 12,
-    name: "Africa For Sustainability Initiative",
-    image: Afosi,
-    message: "Their custom sustainability-reporting tool has transformed how we measure and showcase our impact across multiple projects. With intuitive graphs, automated data feeds, and robust export options, our stakeholder communications are now clearer, more compelling, and fully auditable.",
-    rating: 5,
-  },
-  {
-    id: 13,
-    name: "Kenya School for Monetary Studies",
-    image: KSMS,
-    message: "They designed an e-learning platform tailored to our advanced finance curriculum. Features like interactive case studies, secure assessments, and real-time instructor feedback have enhanced student engagement and learning outcomes. Implementation was smooth and on schedule.",
-    rating: 5,
-  },
-  {
-    id: 14,
-    name: "Presbyterian Church of East Africa",
-    image: PCEA,
-    message: "Their thoughtful approach to community-engagement technology helped us create a mobile app for congregation management and outreach. With prayer requests, event calendars, and donation tracking, our members feel more connected than ever. Support has been prompt and reliable.",
-    rating: 5,
-  },
-  {
-    id: 15,
-    name: "Kenya Society For The Blind",
-    image: KSB,
-    message: "They delivered an accessible information portal optimized for screen readers, audio navigation, and large-print options. Their focus on universal design principles ensures that our visually impaired members can easily access resources, events, and support services.",
-    rating: 5,
-  },
-
 ];
 
 export const services = [
   {
-    title: "Applications, Databases & Software Development",
-    subtitle: "Custom Software Solutions",
-    icon: Code,
-    path: "/Applications",
-    image: "https://img.freepik.com/premium-photo/curios-it-engineer-standing-middle-working-data-center-server-room_488220-873.jpg?w=900",
-    description: "Your challenges demand more than code; you require bespoke digital artistry. We engineer cutting-edge applications and databases that don’t just solve problems; they redefine industries. From AI-driven analytics to mission-critical databases, our solutions are precision-tuned to your ambitions. Think faster decisions, seamless scalability, and a competitive edge sharpened to perfection.",
+    title: "For Property Owners",
+    subtitle: "Landlord & Residential Solutions",
+    icon: Home,
+    path: "/solutions/property-owners",
+    image: "https://img.freepik.com/premium-photo/modern-apartment-building-exterior-urban-setting_185193-47125.jpg?w=800",
+    description: "Eliminate billing disputes and stop subsidising your tenants' utility costs. TokenPap's prepaid metering platform lets property owners install, manage, and profit from electricity, water, and gas meters across multiple units — all from one dashboard. Tenants buy their own tokens; you focus on your returns.",
     highlights: [
-      "Custom software development",
-      "Database design & management",
-      "Web & mobile application development",
-      "API integration & development",
-      "Cloud-native application development"
+      "Zero-debt billing — tenants prepay for utilities",
+      "Remote meter monitoring and control",
+      "Automated token vending via SMS, USSD, or App",
+      "Multi-property portfolio management",
+      "Detailed consumption reports per unit"
     ]
   },
   {
-    title: "Networking Solutions",
-    subtitle: "Networking & Connectivity",
-    icon: WifiIcon,
-    path: "/Networking",
-    image: "https://img.freepik.com/free-photo/network-switch-with-cables_1137-6.jpg?t=st=1746780783~exp=1746784383~hmac=88c3651063496308bc4341432619a5e2a709edbaa5b9b578f849235c31ade6aa&w=900",
-    description: "Your empire spans continents. Our selection of zero-latency networking fabric from reliable OEMs will ensure every user, whether in the boardroom or halfway across the globe, to operate like they’re at the heart of your infrastructure. With integration of software-defined networking (SDN) and multi-layered redundancy, we will turn complexity into seamless, lightning-fast access.",
+    title: "For Property Managers",
+    subtitle: "Estate & Block Management",
+    icon: Building2,
+    path: "/solutions/property-managers",
+    image: "https://img.freepik.com/premium-photo/business-people-meeting-modern-office_185193-55014.jpg?w=800",
+    description: "Managing multiple landlords and hundreds of tenants is complex. TokenPap simplifies utility management with a single platform where property managers can onboard new units, issue tokens, track consumption, and resolve disputes instantly — reducing operational overhead and boosting tenant satisfaction.",
     highlights: [
-      "Sensor network deployment",
-      "Edge computing architecture",
-      "Predictive maintenance systems",
-      "Fleet management solutions",
-      "Smart facility integration"
+      "Centralised multi-landlord dashboard",
+      "Automated billing and token issuance",
+      "Tenant self-service portal",
+      "Escalation alerts for tamper or low-credit events",
+      "Audit trails and compliance reporting"
     ]
   },
   {
-    title: "Cyber Security & Data Loss Prevention",
-    subtitle: "Advanced Threat Protection",
+    title: "For Property Developers",
+    subtitle: "New Development Integration",
+    icon: Building,
+    path: "/solutions/property-developers",
+    image: "https://img.freepik.com/premium-photo/construction-site-with-cranes-modern-buildings_185193-47985.jpg?w=800",
+    description: "Future-proof your developments from day one. We work alongside developers to specify, supply, and commission prepaid and smart metering infrastructure during construction — ensuring every unit is IoT-ready, KPLC/AWSB-compliant, and attractive to modern buyers and tenants.",
+    highlights: [
+      "Metering design and specification consulting",
+      "Bulk supply and on-site commissioning",
+      "Integration with property management software",
+      "Compliance with local regulatory standards",
+      "Handover training for estate management teams"
+    ]
+  },
+  {
+    title: "For Business Parks",
+    subtitle: "Commercial Estate Solutions",
+    icon: Briefcase,
+    path: "/solutions/business-parks",
+    image: "https://img.freepik.com/premium-photo/modern-business-park-aerial-view_185193-47126.jpg?w=800",
+    description: "Large commercial estates demand precision utility cost allocation across dozens of tenants. TokenPap delivers sub-metering for electricity, water, and gas — enabling transparent billing by actual consumption, reducing disputes, and helping park managers demonstrate sustainability commitments to investors.",
+    highlights: [
+      "Sub-metering per tenant or floor",
+      "Real-time consumption dashboards",
+      "Automated invoicing integration",
+      "Leak and waste detection alerts",
+      "Carbon footprint and sustainability reporting"
+    ]
+  },
+  {
+    title: "For Water Utilities",
+    subtitle: "Revenue Protection & AMI",
+    icon: Droplets,
+    path: "/solutions/water-utilities",
+    image: "https://img.freepik.com/premium-photo/water-treatment-plant-infrastructure_185193-47127.jpg?w=800",
+    description: "Non-revenue water is one of the biggest threats to utility profitability. TokenPap's smart metering solutions — including LoRaWAN and NB-IoT network meters — help water utilities detect leaks, eliminate illegal connections, enforce prepayment, and build an Advanced Metering Infrastructure (AMI) for complete network visibility.",
+    highlights: [
+      "AMI rollout with LoRa and NB-IoT technologies",
+      "Real-time leak and burst detection",
+      "Prepaid enforcement to eliminate debt",
+      "District metered area (DMA) management",
+      "Revenue assurance analytics"
+    ]
+  },
+  {
+    title: "For Municipalities",
+    subtitle: "Smart City Utility Management",
+    icon: Landmark,
+    path: "/solutions/municipalities",
+    image: "https://img.freepik.com/premium-photo/smart-city-infrastructure-aerial-view_185193-47128.jpg?w=800",
+    description: "Local authorities managing water and power distribution across large populations need reliable, scalable metering infrastructure. TokenPap supports municipalities with bulk smart meter deployments, centralised AMI platforms, and data analytics tools that improve revenue collection and service delivery to citizens.",
+    highlights: [
+      "Large-scale smart meter procurement and deployment",
+      "Centralised AMI data management platform",
+      "Citizen self-service payment portals",
+      "Revenue collection and arrears management",
+      "Regulatory compliance and audit reporting"
+    ]
+  },
+  {
+    title: "For Schools",
+    subtitle: "Education Sector Utility Control",
+    icon: GraduationCap,
+    path: "/solutions/schools",
+    image: "https://img.freepik.com/premium-photo/modern-school-campus-exterior_185193-47129.jpg?w=800",
+    description: "Schools and universities often face uncontrolled utility expenditure. TokenPap's prepaid metering system enables institutions to set budgets per hostel block, laboratory, or facility — ensuring consumption stays within budget and helping finance teams accurately allocate utility costs across departments.",
+    highlights: [
+      "Budget-controlled prepaid metering per block",
+      "Hostel and facility-level sub-metering",
+      "Mobile token purchase for students",
+      "Finance team reporting and cost allocation",
+      "Tamper alerts and security notifications"
+    ]
+  },
+  {
+    title: "For Factories",
+    subtitle: "Industrial Utility Optimisation",
+    icon: Factory,
+    path: "/solutions/factories",
+    image: "https://img.freepik.com/premium-photo/modern-factory-interior-industrial-plant_185193-47130.jpg?w=800",
+    description: "Manufacturing facilities consume enormous amounts of electricity, water, and gas. TokenPap's smart metering platform provides production managers with granular consumption data per machine or production line, enabling energy audits, waste reduction, and integration with ERP and SCADA systems.",
+    highlights: [
+      "Machine and line-level sub-metering",
+      "Energy audit data and efficiency reporting",
+      "ERP and SCADA integration",
+      "Peak demand management and alerts",
+      "Gas and steam metering for process industries"
+    ]
+  },
+  {
+    title: "For Hospitals",
+    subtitle: "Healthcare Facility Solutions",
+    icon: LucideChevronUpSquare,
+    path: "/solutions/hospitals",
+    image: "https://img.freepik.com/premium-photo/modern-hospital-building-exterior_185193-47131.jpg?w=800",
+    description: "Hospitals cannot afford power interruptions or unplanned utility costs. TokenPap provides hospitals with reliable prepaid metering, backup power monitoring, and ward-level consumption tracking — helping finance teams control costs while ensuring critical care infrastructure remains energised at all times.",
+    highlights: [
+      "Ward and department-level consumption tracking",
+      "Critical load monitoring and priority alerts",
+      "Backup power and generator integration",
+      "Detailed utility cost allocation for audits",
+      "Compliance with health facility energy regulations"
+    ]
+  },
+  {
+    title: "For Gated Communities",
+    subtitle: "Residential Estate Management",
     icon: Shield,
-    path: "/Cybersecurity",
-    image: "https://img.freepik.com/free-vector/neon-fingerprint-background_23-2148364032.jpg?t=st=1746781511~exp=1746785111~hmac=e4ccaafcf3d05fffa67177860d0abbed45cc6a9e470f1174349ea1e0399fc145&w=996",
-    description: "In a world of wolves, we are your war machines. Our cybersecurity suite isn’t just a shield - it’s an AI-powered sentinel that hunts threats before they breathe. From quantum-resistant encryption to behavior - based anomaly detection, we guard your data with a brutality that leaves no room for error.",
+    path: "/solutions/gated-communities",
+    image: "https://img.freepik.com/premium-photo/luxury-gated-community-residential-estate_185193-47132.jpg?w=800",
+    description: "Gated communities and homeowner associations need fair, transparent utility billing for every household. TokenPap delivers individual prepaid meters for electricity, water, and gas with a resident-facing app for token purchases, consumption tracking, and direct communication with the estate management office.",
     highlights: [
-      "Real-time threat detection & response",
-      "Compliance management",
-      "Security awareness training",
-      "Penetration testing & audits",
-      "Incident response planning"
-    ]
-
-  },
-  {
-    title: "Enterprise Resource Planning",
-    subtitle: "ERP & Business Process Automation",
-    icon: Code,
-    path: "/Enterprisesolutions",
-    image: "https://img.freepik.com/premium-photo/enterprise-resource-management-erp-software-system-business-resources-plan_31965-6467.jpg?w=996",
-    description: "Your business isn't just processes - it's a battlefield of ambition. Our AI-driven Enterprise Resource Planning systems don't just streamline workflows; they orchestrate empires. We transform fragmented operations into a weaponized advantage through ruthless operational efficiency and predictive command.",
-
-    highlights: [
-      "Sensor network deployment",
-      "Edge computing architecture",
-      "Predictive maintenance systems",
-      "Fleet management solutions",
-      "Smart facility integration"
-    ]
-  },
-  {
-    title: "Software & Hardware Infrastructure",
-    subtitle: "Infrastructure",
-    icon: Cpu,
-    path: "/Infrastructure",
-    image: "https://img.freepik.com/free-photo/modern-data-center-providing-cloud-services-enabling-businesses-access-computing-resources-storage-demand-internet-server-room-infrastructure-3d-render-animation_482257-65963.jpg?t=st=1746692093~exp=1746695693~hmac=ac9e278e20f4a920c47a2abd440d65e9107334b35adb78c1c81f0098d05e7e46&w=996",
-    description: "We understand that behind every revolution lies infrastructure engineered to perfection. Our carefully selected and optimized high-availability compute and storage platforms are the silent titans of your success; our aim is to make your enterprise relentless, resilient, and ready to scale at the speed of your ambition. With 99.999% uptime and enterprise-grade redundancy, your applications will not just run; they will dominate.",
-    highlights: [
-      "Full-stack cloud migration services",
-      "Multi-cloud management & optimization",
-      "Disaster recovery planning",
-      "Cost management & optimization",
-      "Kubernetes & container orchestration"
+      "Per-household prepaid metering",
+      "Resident self-service app for token purchases",
+      "Estate management oversight dashboard",
+      "Communal area utility monitoring",
+      "Automated levy and billing integration"
     ]
   },
 ];

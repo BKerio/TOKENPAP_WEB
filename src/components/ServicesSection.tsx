@@ -28,8 +28,8 @@ const ServicesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mx-auto w-full max-w-2xl lg:max-w-none bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700/50">
           <SectionHeader 
-            title="Our Industrial Solutions" 
-            subtitle="Discover a full spectrum of technology solutions engineered to drive efficiency. From enterprise resource planning to robust cybersecurity, we tailor every system to your organizational power."
+            title="Our Solutions" 
+            subtitle="TokenPap serves a wide spectrum of customers — from individual landlords to national utilities. Explore tailored prepaid and smart metering solutions built for your sector."
             align="center"
           />
 
@@ -47,7 +47,7 @@ const ServicesSection: React.FC = () => {
                   >
                     <div className="flex items-center gap-3">
                       {Icon && (
-                        <div className="flex-shrink-0 text-red-500 bg-red-50 dark:bg-red-900/20 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <div className="flex-shrink-0 text-gray-500 bg-gray-100 dark:bg-gray-700 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
                           <Icon className="w-6 h-6" />
                         </div>
                       )}
@@ -55,7 +55,7 @@ const ServicesSection: React.FC = () => {
                         {service.title}
                       </h3>
                     </div>
-                    <span className={`transform transition-transform duration-300 border border-gray-200 dark:border-gray-700 rounded-full p-1 group-hover:bg-red-50 dark:group-hover:bg-red-900/20 group-hover:border-red-200 dark:group-hover:border-red-900 ${isOpen ? 'rotate-180 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-900' : ''}`}>
+                    <span className={`transform transition-transform duration-300 border border-gray-200 dark:border-gray-700 rounded-full p-1 group-hover:bg-gray-200 dark:group-hover:bg-gray-600 group-hover:border-gray-300 dark:group-hover:border-gray-500 ${isOpen ? 'rotate-180 bg-gray-200 dark:bg-gray-600 border-gray-300 dark:border-gray-500' : ''}`}>
                       <ChevronDownCircleIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                     </span>
                   </button>
@@ -69,7 +69,7 @@ const ServicesSection: React.FC = () => {
                       <p className="mb-4">{service.description}</p>
                       <Link
                          to={service.path}
-                         className="group inline-flex items-center px-6 py-3 bg-red-500 text-white font-semibold rounded-full shadow-md hover:bg-red-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                         className="group inline-flex items-center px-6 py-3 bg-gray-500 text-white font-semibold rounded-full shadow-md hover:bg-gray-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                        >
                          Learn More
                          <span

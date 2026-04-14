@@ -13,7 +13,7 @@ const PartnersSection: React.FC = () => {
   const totalOriginalWidth = partnersList.length * cardFullWidth;
 
   const controls = useAnimation();
-  const cycleDuration = 70; // In seconds
+  const cycleDuration = 20; // In seconds
 
   // Start infinite loop animation
   const startAnimation = () => {
@@ -46,8 +46,8 @@ const PartnersSection: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <SectionHeader 
-          title="Our Trusted Partners" 
+        <SectionHeader
+          title="Our Trusted Partners"
           subtitle="Collaborating with industry-leading technology providers to deliver cutting-edge enterprise solutions."
           align="center"
         />

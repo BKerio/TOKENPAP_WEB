@@ -6,33 +6,40 @@ import SectionHeader from "./SectionHeader";
 
 const products = [
   {
-    title: "Smart Electricity Meters",
-    category: "Connectivity",
-    desc: "Industrial-grade LoRaWAN, NB-IoT, and WiFi-connected meters for precise energy monitoring and remote switching.",
+    title: "Prepaid Electricity Meters",
+    category: "Electricity",
+    desc: "STS-compliant prepaid electricity meters enabling landlords and utilities to bill tenants accurately with remote token vending and real-time usage monitoring.",
     image: "https://img.freepik.com/premium-photo/digital-smart-electric-meter-white-background-electricity-control-concept_495423-10825.jpg?w=800",
     link: "/products/electricity"
   },
   {
-    title: "Ultrasonic Water Meters",
-    category: "Sustainability",
-    desc: "Highly accurate water measurement with leak detection and remote shut-off via integrated valve control.",
+    title: "Prepaid Water Meters",
+    category: "Water",
+    desc: "Accurate prepaid water metering with automated valve control, leak detection alerts, and seamless token dispensing for residential and commercial properties.",
     image: "https://img.freepik.com/premium-photo/modern-water-meter-isolated-white-background_185193-47125.jpg?w=800",
     link: "/products/water"
   },
   {
-    title: "Smart Gas & Heat Meters",
-    category: "Management",
-    desc: "Robust utility tracking for gas and thermal energy, ensuring safety and efficiency in complex infrastructures.",
+    title: "Prepaid Gas Meters",
+    category: "Gas",
+    desc: "Safe and reliable prepaid gas metering with tamper-proof enclosures, emergency shut-off valves, and remote credit top-up capabilities.",
     image: "https://img.freepik.com/premium-photo/natural-gas-meter-isolated-white-background_185193-35614.jpg?w=800",
     link: "/products/gas"
   },
   {
-    title: "Utility Management Cloud",
-    category: "Software",
-    desc: "The TokenPap Core system that orchestrates millions of data points into actionable energy insights and billing.",
-    image: "https://img.freepik.com/premium-photo/cloud-computing-technology-concept-with-3d-rendering-cloud-icons-data-center_494516-1188.jpg?w=800",
-    link: "/Applications"
-  }
+    title: "LoRa Smart Water Meters",
+    category: "IoT · LoRa",
+    desc: "Long-range, low-power LoRaWAN water meters delivering real-time consumption data across large estates, campuses, and remote areas without cellular dependency.",
+    image: "https://img.freepik.com/premium-photo/modern-water-meter-isolated-white-background_185193-47985.jpg?w=800",
+    link: "/products/lora-water"
+  },
+  {
+    title: "NB-IoT Smart Water Meters",
+    category: "IoT · NB-IoT",
+    desc: "Narrowband IoT water meters leveraging cellular networks for high-density deployments with cloud integration, automated billing, and predictive maintenance insights.",
+    image: "https://img.freepik.com/premium-photo/smart-water-meter-isolated-white-background_185193-55014.jpg?w=800",
+    link: "/products/nbiot-water"
+  },
 ];
 
 const ProductHighlightSection: React.FC = () => {
@@ -41,12 +48,12 @@ const ProductHighlightSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeader 
-          title="Product Categories" 
-          subtitle="Explore our comprehensive range of smart meters and management systems. From precision hardware to enterprise software, we provide total utility command."
+          title="Our Products" 
+          subtitle="Explore TokenPap's full range of prepaid and smart metering solutions — designed for precision, built for scale, and ready for every utility application."
           align="center"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {products.map((product, i) => (
             <motion.div
               key={product.title}
