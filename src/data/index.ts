@@ -1,5 +1,5 @@
 // src/data/index.ts
-import { Home, Building2, Building, Briefcase, Droplets, Landmark, GraduationCap, Factory, Shield, LucideChevronUpSquare } from "lucide-react";
+import { Home, Building2, Building, Briefcase, Droplets, Landmark, GraduationCap, Factory, Shield, Cross, Plane, Atom, Route } from "lucide-react";
 
 // hero section slides
 import HeroImage1 from "@/assets/tokenpap.avif";
@@ -7,6 +7,7 @@ import HeroImage2 from "@/assets/meters1.avif";
 import HeroImage3 from "@/assets/sunset-savannah.avif";
 import HeroImage4 from "@/assets/meters.avif";
 import HeroImage5 from "@/assets/4166127.avif";
+import CityMapImage from "@/assets/city-map.png";
 
 import FeaturedImage1 from "@/assets/data-center.avif";
 import FeaturedImage2 from "@/assets/cybersec.avif";
@@ -124,58 +125,18 @@ export const testimonials = [
   },
 ];
 
+export { CityMapImage };
+
 export const services = [
   {
-    title: "For Property Owners",
-    subtitle: "Landlord & Residential Solutions",
-    icon: Home,
-    path: "/solutions/property-owners",
-    image: "https://img.freepik.com/premium-photo/modern-apartment-building-exterior-urban-setting_185193-47125.jpg?w=800",
-    description: "Eliminate billing disputes and stop subsidising your tenants' utility costs. TokenPap's prepaid metering platform lets property owners install, manage, and profit from electricity, water, and gas meters across multiple units — all from one dashboard. Tenants buy their own tokens; you focus on your returns.",
-    highlights: [
-      "Zero-debt billing — tenants prepay for utilities",
-      "Remote meter monitoring and control",
-      "Automated token vending via SMS, USSD, or App",
-      "Multi-property portfolio management",
-      "Detailed consumption reports per unit"
-    ]
-  },
-  {
-    title: "For Property Managers",
-    subtitle: "Estate & Block Management",
-    icon: Building2,
-    path: "/solutions/property-managers",
-    image: "https://img.freepik.com/premium-photo/business-people-meeting-modern-office_185193-55014.jpg?w=800",
-    description: "Managing multiple landlords and hundreds of tenants is complex. TokenPap simplifies utility management with a single platform where property managers can onboard new units, issue tokens, track consumption, and resolve disputes instantly — reducing operational overhead and boosting tenant satisfaction.",
-    highlights: [
-      "Centralised multi-landlord dashboard",
-      "Automated billing and token issuance",
-      "Tenant self-service portal",
-      "Escalation alerts for tamper or low-credit events",
-      "Audit trails and compliance reporting"
-    ]
-  },
-  {
-    title: "For Property Developers",
-    subtitle: "New Development Integration",
-    icon: Building,
-    path: "/solutions/property-developers",
-    image: "https://img.freepik.com/premium-photo/construction-site-with-cranes-modern-buildings_185193-47985.jpg?w=800",
-    description: "Future-proof your developments from day one. We work alongside developers to specify, supply, and commission prepaid and smart metering infrastructure during construction — ensuring every unit is IoT-ready, KPLC/AWSB-compliant, and attractive to modern buyers and tenants.",
-    highlights: [
-      "Metering design and specification consulting",
-      "Bulk supply and on-site commissioning",
-      "Integration with property management software",
-      "Compliance with local regulatory standards",
-      "Handover training for estate management teams"
-    ]
-  },
-  {
-    title: "For Business Parks",
-    subtitle: "Commercial Estate Solutions",
+    zone: "Commercial",
+    title: "Commercial Districts",
+    subtitle: "Business Parks & Commercial Estates",
     icon: Briefcase,
     path: "/solutions/business-parks",
-    image: "https://img.freepik.com/premium-photo/modern-business-park-aerial-view_185193-47126.jpg?w=800",
+    color: "#22c55e",
+    position: { top: "12%", left: "38%" },
+    mobilePosition: { top: "13%", left: "50%" },
     description: "Large commercial estates demand precision utility cost allocation across dozens of tenants. TokenPap delivers sub-metering for electricity, water, and gas — enabling transparent billing by actual consumption, reducing disputes, and helping park managers demonstrate sustainability commitments to investors.",
     highlights: [
       "Sub-metering per tenant or floor",
@@ -186,26 +147,14 @@ export const services = [
     ]
   },
   {
-    title: "For Water Utilities",
-    subtitle: "Revenue Protection & AMI",
-    icon: Droplets,
-    path: "/solutions/water-utilities",
-    image: "https://img.freepik.com/premium-photo/water-treatment-plant-infrastructure_185193-47127.jpg?w=800",
-    description: "Non-revenue water is one of the biggest threats to utility profitability. TokenPap's smart metering solutions — including LoRaWAN and NB-IoT network meters — help water utilities detect leaks, eliminate illegal connections, enforce prepayment, and build an Advanced Metering Infrastructure (AMI) for complete network visibility.",
-    highlights: [
-      "AMI rollout with LoRa and NB-IoT technologies",
-      "Real-time leak and burst detection",
-      "Prepaid enforcement to eliminate debt",
-      "District metered area (DMA) management",
-      "Revenue assurance analytics"
-    ]
-  },
-  {
-    title: "For Municipalities",
-    subtitle: "Smart City Utility Management",
-    icon: Landmark,
+    zone: "Park",
+    title: "Parks & Public Spaces",
+    subtitle: "Municipal Green Zone Management",
+    icon: Home,
     path: "/solutions/municipalities",
-    image: "https://img.freepik.com/premium-photo/smart-city-infrastructure-aerial-view_185193-47128.jpg?w=800",
+    color: "#22c55e",
+    position: { top: "8%", left: "68%" },
+    mobilePosition: { top: "8%", left: "65%" },
     description: "Local authorities managing water and power distribution across large populations need reliable, scalable metering infrastructure. TokenPap supports municipalities with bulk smart meter deployments, centralised AMI platforms, and data analytics tools that improve revenue collection and service delivery to citizens.",
     highlights: [
       "Large-scale smart meter procurement and deployment",
@@ -216,26 +165,32 @@ export const services = [
     ]
   },
   {
-    title: "For Schools",
-    subtitle: "Education Sector Utility Control",
-    icon: GraduationCap,
-    path: "/solutions/schools",
-    image: "https://img.freepik.com/premium-photo/modern-school-campus-exterior_185193-47129.jpg?w=800",
-    description: "Schools and universities often face uncontrolled utility expenditure. TokenPap's prepaid metering system enables institutions to set budgets per hostel block, laboratory, or facility — ensuring consumption stays within budget and helping finance teams accurately allocate utility costs across departments.",
+    zone: "Data Center",
+    title: "Data Centers",
+    subtitle: "Mission-Critical Facility Metering",
+    icon: Atom,
+    path: "/solutions/data-centers",
+    color: "#22c55e",
+    position: { top: "22%", left: "10%" },
+    mobilePosition: { top: "26%", left: "34%" },
+    description: "Data centers have zero tolerance for power disruptions and require granular energy monitoring per rack and cooling unit. TokenPap's smart metering and AMI solutions give facility managers complete visibility over PUE (Power Usage Effectiveness), enabling proactive cost reduction and SLA compliance.",
     highlights: [
-      "Budget-controlled prepaid metering per block",
-      "Hostel and facility-level sub-metering",
-      "Mobile token purchase for students",
-      "Finance team reporting and cost allocation",
-      "Tamper alerts and security notifications"
+      "Rack-level power monitoring (kWh & kVA)",
+      "Cooling and HVAC sub-metering",
+      "PUE analytics and sustainability reporting",
+      "Automated alerts for load imbalances",
+      "Integration with DCIM and BMS platforms"
     ]
   },
   {
-    title: "For Factories",
+    zone: "Factory",
+    title: "Industrial Factories",
     subtitle: "Industrial Utility Optimisation",
     icon: Factory,
     path: "/solutions/factories",
-    image: "https://img.freepik.com/premium-photo/modern-factory-interior-industrial-plant_185193-47130.jpg?w=800",
+    color: "#22c55e",
+    position: { top: "40%", left: "5%" },
+    mobilePosition: { top: "44%", left: "31%" },
     description: "Manufacturing facilities consume enormous amounts of electricity, water, and gas. TokenPap's smart metering platform provides production managers with granular consumption data per machine or production line, enabling energy audits, waste reduction, and integration with ERP and SCADA systems.",
     highlights: [
       "Machine and line-level sub-metering",
@@ -246,11 +201,50 @@ export const services = [
     ]
   },
   {
-    title: "For Hospitals",
+    zone: "Highway",
+    title: "Highway Corridors",
+    subtitle: "Infrastructure & Utility Right-of-Way",
+    icon: Route,
+    path: "/solutions/infrastructure",
+    color: "#22c55e",
+    position: { top: "42%", left: "30%" },
+    mobilePosition: { top: "44%", left: "50%" },
+    description: "Highway and infrastructure projects require monitoring of lighting, signage, and utility consumption along extensive corridors. TokenPap provides remote metering and monitoring for roadside utilities, enabling authorities to track consumption, detect faults, and manage energy costs across kilometres of infrastructure.",
+    highlights: [
+      "Remote streetlight and signage metering",
+      "Fault detection along corridor networks",
+      "GPS-tagged meter locations on GIS maps",
+      "Solar and grid hybrid monitoring",
+      "Automated maintenance and billing alerts"
+    ]
+  },
+  {
+    zone: "Campus",
+    title: "School Campuses",
+    subtitle: "Education Sector Utility Control",
+    icon: GraduationCap,
+    path: "/solutions/schools",
+    color: "#22c55e",
+    position: { top: "30%", left: "70%" },
+    mobilePosition: { top: "30%", left: "65%" },
+    description: "Schools and universities often face uncontrolled utility expenditure. TokenPap's prepaid metering system enables institutions to set budgets per hostel block, laboratory, or facility — ensuring consumption stays within budget and helping finance teams accurately allocate utility costs across departments.",
+    highlights: [
+      "Budget-controlled prepaid metering per block",
+      "Hostel and facility-level sub-metering",
+      "Mobile token purchase for students",
+      "Finance team reporting and cost allocation",
+      "Tamper alerts and security notifications"
+    ]
+  },
+  {
+    zone: "Hospital",
+    title: "Hospitals & Clinics",
     subtitle: "Healthcare Facility Solutions",
-    icon: LucideChevronUpSquare,
+    icon: Cross,
     path: "/solutions/hospitals",
-    image: "https://img.freepik.com/premium-photo/modern-hospital-building-exterior_185193-47131.jpg?w=800",
+    color: "#22c55e",
+    position: { top: "58%", left: "52%" },
+    mobilePosition: { top: "60%", left: "55%" },
     description: "Hospitals cannot afford power interruptions or unplanned utility costs. TokenPap provides hospitals with reliable prepaid metering, backup power monitoring, and ward-level consumption tracking — helping finance teams control costs while ensuring critical care infrastructure remains energised at all times.",
     highlights: [
       "Ward and department-level consumption tracking",
@@ -261,18 +255,57 @@ export const services = [
     ]
   },
   {
-    title: "For Gated Communities",
-    subtitle: "Residential Estate Management",
-    icon: Shield,
-    path: "/solutions/gated-communities",
-    image: "https://img.freepik.com/premium-photo/luxury-gated-community-residential-estate_185193-47132.jpg?w=800",
-    description: "Gated communities and homeowner associations need fair, transparent utility billing for every household. TokenPap delivers individual prepaid meters for electricity, water, and gas with a resident-facing app for token purchases, consumption tracking, and direct communication with the estate management office.",
+    zone: "Airport",
+    title: "Airports & Transport Hubs",
+    subtitle: "Aviation & Transit Utility Management",
+    icon: Plane,
+    path: "/solutions/airports",
+    color: "#22c55e",
+    position: { top: "75%", left: "28%" },
+    mobilePosition: { top: "77%", left: "38%" },
+    description: "Airports and transport hubs operate around the clock with massive and varied utility demands. TokenPap's metering platform tracks consumption across terminals, runways, cargo zones, and hotels — giving facility teams accurate data to optimise energy spend and comply with environmental commitments.",
     highlights: [
-      "Per-household prepaid metering",
-      "Resident self-service app for token purchases",
-      "Estate management oversight dashboard",
-      "Communal area utility monitoring",
-      "Automated levy and billing integration"
+      "Terminal and zone-level sub-metering",
+      "24/7 remote monitoring and alerts",
+      "Fuel hydrant and water system metering",
+      "Solar integration and green energy tracking",
+      "Regulatory and ISO 50001 compliance support"
+    ]
+  },
+  {
+    zone: "Residential",
+    title: "Residential Estates",
+    subtitle: "Landlord & Gated Community Solutions",
+    icon: Home,
+    path: "/solutions/property-owners",
+    color: "#22c55e",
+    position: { top: "20%", left: "82%" },
+    mobilePosition: { top: "18%", left: "65%" },
+    description: "Eliminate billing disputes and stop subsidising your tenants' utility costs. TokenPap's prepaid metering platform lets property owners install, manage, and profit from electricity, water, and gas meters across multiple units — all from one dashboard. Tenants buy their own tokens; you focus on your returns.",
+    highlights: [
+      "Zero-debt billing — tenants prepay for utilities",
+      "Remote meter monitoring and control",
+      "Automated token vending via SMS, USSD, or App",
+      "Multi-property portfolio management",
+      "Detailed consumption reports per unit"
+    ]
+  },
+  {
+    zone: "Water Utility",
+    title: "Water Utilities",
+    subtitle: "Revenue Protection & AMI",
+    icon: Droplets,
+    path: "/solutions/water-utilities",
+    color: "#22c55e",
+    position: { top: "65%", left: "72%" },
+    mobilePosition: { top: "63%", left: "38%" },
+    description: "Non-revenue water is one of the biggest threats to utility profitability. TokenPap's smart metering solutions — including LoRaWAN and NB-IoT network meters — help water utilities detect leaks, eliminate illegal connections, enforce prepayment, and build an Advanced Metering Infrastructure (AMI) for complete network visibility.",
+    highlights: [
+      "AMI rollout with LoRa and NB-IoT technologies",
+      "Real-time leak and burst detection",
+      "Prepaid enforcement to eliminate debt",
+      "District metered area (DMA) management",
+      "Revenue assurance analytics"
     ]
   },
 ];
