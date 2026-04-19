@@ -1,7 +1,7 @@
 // src/components/Solutions.tsx
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, CheckCircle } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services } from "@/data";
 import SectionHeader from "@/components/SectionHeader";

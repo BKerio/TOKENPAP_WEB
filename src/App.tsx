@@ -16,6 +16,7 @@ import { AccessibilityProvider } from "@/lib/AccessibilityContext";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import NetworkStatus from "@/components/NetworkStatus";
 import { Toaster } from 'sonner';
+import SolutionDetail from "@/pages/SolutionDetail";
 
 
 {/** solutions*/ }
@@ -63,6 +64,9 @@ function App() {
                 <Route path="/Infrastructure" element={<Infrustructure />} />
                 <Route path="/Enterprisesolutions" element={<ERP />} />
                 <Route path="/Networking" element={<Networks />} />
+
+                {/** Dynamic Solutions Routes */}
+                <Route path="/solutions/:solutionId" element={<SolutionDetail />} />
 
               </Routes>
             </main>

@@ -5,10 +5,9 @@ import { ThemeToggle } from "@/models/theme-toggle";
 import SearchModal from "@/components/SearchModal";
 import { Button } from "@/models/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import LogoBlack from "@/assets/icon.png";
-import LogoWhite from "@/assets/icon.png";
 import React from "react";
 import KenyaFlag from "@/assets/flag-for-flag-kenya-svgrepo-com.svg";
+import TokenPapLogo from "@/components/TokenPapLogo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,11 +34,6 @@ const Navbar = () => {
 
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const getInitialLogo = () => {
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    return isDarkMode ? LogoWhite : LogoBlack;
-  };
-  const [currentLogoSrc, setCurrentLogoSrc] = useState(getInitialLogo);
 
   const closeAllMenus = () => {
     setIsOpen(false);
@@ -82,16 +76,7 @@ const Navbar = () => {
     setShowDownloadPopup(!showDownloadPopup);
   };
 
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setCurrentLogoSrc(getInitialLogo());
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+
 
   useEffect(() => {
     let lastScrollY = window.pageYOffset;
@@ -136,22 +121,22 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { 
-      name: "Products", 
-      path: "/products", 
+    {
+      name: "Products",
+      path: "/products",
       dropdown: [
         { name: "Prepaid Electricity Meters", path: "/products/electricity" },
         { name: "Prepaid Water Meters", path: "/products/water" },
         { name: "Prepaid Gas Meters", path: "/products/gas" },
         { name: "LoRa Smart Water Meters", path: "/products/lora-water" },
         { name: "NB-IoT Smart Water Meters", path: "/products/nbiot-water" },
-      ] 
+      ]
     },
-    { 
-      name: 'Solutions', 
-      path: '/solutions', 
+    {
+      name: 'Solutions',
+      path: '/solutions',
       dropdown: [
-        { name: "For Property Owner", path: "/solutions/property-owner" },
+        { name: "For Property Owner", path: "/solutions/property-owners" },
         { name: "For Property Managers", path: "/solutions/property-managers" },
         { name: "For Property Developers", path: "/solutions/property-developers" },
         { name: "For Business Parks", path: "/solutions/business-parks" },
@@ -161,7 +146,7 @@ const Navbar = () => {
         { name: "For Factories", path: "/solutions/factories" },
         { name: "For Hospitals", path: "/solutions/hospitals" },
         { name: "For Gated Communities", path: "/solutions/gated-communities" },
-      ] 
+      ]
     },
     { name: "Contact Us", path: "/contact" },
   ];
@@ -193,18 +178,18 @@ const Navbar = () => {
               </div>
               <span className="hidden sm:block text-gray-300 dark:text-gray-700 select-none">|</span>
               <a href="mailto:info@tokenpap.com"
-                 className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                 <Mail className="h-4 w-4 flex-shrink-0" />
-                 <span>info@tokenpap.com</span>
-               </a>
-               
-               <span className="hidden sm:block text-gray-300 dark:text-gray-700 select-none">|</span>
-               
-               <a href="tel:+254741099909"
-                 className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                 <Phone className="h-4 w-4 flex-shrink-0" />
-                 <span>+254 741 099 909</span>
-               </a>
+                className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <span>info@tokenpap.com</span>
+              </a>
+
+              <span className="hidden sm:block text-gray-300 dark:text-gray-700 select-none">|</span>
+
+              <a href="tel:+254741099909"
+                className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>+254 741 099 909</span>
+              </a>
             </div>
 
             {/* Right: CTA */}
@@ -226,71 +211,69 @@ const Navbar = () => {
 
             {/* Col 1: Logo */}
             <Link to="/" className="flex items-center h-full" onClick={closeAllMenus}>
-              <img
-                src={currentLogoSrc}
-                draggable={false}
-                alt="TokenPap Logo"
-                className="w-auto object-contain transition-all duration-300"
+              <div 
+                className="transition-all duration-300"
                 style={{ height: scrolled ? '56px' : '72px' }}
-              />
+              >
+                <TokenPapLogo isScrolled={scrolled} />
+              </div>
             </Link>
 
             {/* Col 2: Nav Links — auto-centered in remaining space */}
             <nav className="hidden md:flex items-center justify-center gap-x-1 lg:gap-x-3 h-full">
-                {navLinks.map((link) => (
-                  <div
-                    key={link.name}
-                    className="relative h-full flex items-center"
-                    onMouseEnter={() => link.dropdown && handleMouseEnter(link.name)}
-                    onMouseLeave={() => link.dropdown && handleMouseLeave()}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`flex items-center px-3 py-2 rounded-md text-[0.8rem] font-semibold uppercase tracking-wide transition-colors ${
-                        (location.pathname.startsWith(link.path) && link.path !== '/') || location.pathname === link.path
-                          ? "text-amber-600 dark:text-amber-500"
-                          : "text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400"
+              {navLinks.map((link) => (
+                <div
+                  key={link.name}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => link.dropdown && handleMouseEnter(link.name)}
+                  onMouseLeave={() => link.dropdown && handleMouseLeave()}
+                >
+                  <Link
+                    to={link.path}
+                    className={`flex items-center px-3 py-2 rounded-md text-[0.8rem] font-semibold uppercase tracking-wide transition-colors ${(location.pathname.startsWith(link.path) && link.path !== '/') || location.pathname === link.path
+                        ? "text-amber-600 dark:text-amber-500"
+                        : "text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400"
                       }`}
-                    >
-                      {link.name}
-                      {link.dropdown && (
-                        <ChevronDownCircle
-                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`}
-                        />
-                      )}
-                    </Link>
-                    <AnimatePresence>
-                      {link.dropdown && activeDropdown === link.name && !isMobile && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-20 p-2 space-y-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-xl w-56"
-                          onMouseEnter={() => handleMouseEnter(link.name)}
-                          onMouseLeave={handleMouseLeave}
-                        >
-                          {link.dropdown.map((sublink, index) => (
-                            <React.Fragment key={sublink.name}>
-                              <Link
-                                to={sublink.path}
-                                onClick={closeAllMenus}
-                                className="flex items-center w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
-                              >
-                                <div className="w-1.5 h-1.5 rounded-full bg-red-500 mr-3 flex-shrink-0" />
-                                <span>{sublink.name}</span>
-                              </Link>
-                              {index !== link.dropdown!.length - 1 && (
-                                <div className="border-t border-gray-500 dark:border-gray-700 my-1 mx-3" />
-                              )}
-                            </React.Fragment>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </nav>
+                  >
+                    {link.name}
+                    {link.dropdown && (
+                      <ChevronDownCircle
+                        className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`}
+                      />
+                    )}
+                  </Link>
+                  <AnimatePresence>
+                    {link.dropdown && activeDropdown === link.name && !isMobile && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-20 p-2 space-y-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-xl w-56"
+                        onMouseEnter={() => handleMouseEnter(link.name)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {link.dropdown.map((sublink, index) => (
+                          <React.Fragment key={sublink.name}>
+                            <Link
+                              to={sublink.path}
+                              onClick={closeAllMenus}
+                              className="flex items-center w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-red-500 mr-3 flex-shrink-0" />
+                              <span>{sublink.name}</span>
+                            </Link>
+                            {index !== link.dropdown!.length - 1 && (
+                              <div className="border-t border-gray-500 dark:border-gray-700 my-1 mx-3" />
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </nav>
 
             {/* Col 3: Right Side Controls */}
             <div className="hidden md:flex items-center justify-end space-x-2 lg:space-x-3 h-full">
@@ -304,7 +287,7 @@ const Navbar = () => {
               <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-1"></div>
               <ThemeToggle />
               <div className="relative flex items-center h-full">
-                <Button 
+                <Button
                   onClick={() => window.location.href = 'https://app.tokenpap.com/'}
                   className="bg-gray-900 text-white hover:bg-gray-700 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors flex items-center gap-2"
                 >
@@ -412,7 +395,7 @@ const Navbar = () => {
               </div>
 
               <div className="pt-4 mt-2 border-t border-gray-200 dark:border-gray-700 space-y-4">
-                <Button 
+                <Button
                   onClick={() => window.location.href = 'https://app.tokenpap.com/'}
                   className="w-full bg-gray-900 text-white hover:bg-gray-800"
                 >
