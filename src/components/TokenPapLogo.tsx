@@ -7,7 +7,7 @@ interface TokenPapLogoProps {
   isScrolled?: boolean;
 }
 
-const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "", isScrolled = false }) => {
+const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "" }) => {
   return (
     <motion.svg
       viewBox="0 0 450 120"
@@ -29,82 +29,82 @@ const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "", isScrolled 
       </defs>
 
       Electricity Pylon
-        {/* Electricity Meter Icon */}
-<g className="text-gray-900 dark:text-white transition-colors duration-300">
+      {/* Electricity Meter Icon */}
+      <g className="text-gray-900 dark:text-white transition-colors duration-300">
 
-  {/* Outer frame */}
-  <rect
-    x="15"
-    y="10"
-    width="60"
-    height="70"
-    rx="8"
-    stroke="currentColor"
-    strokeWidth="3"
-    fill="none"
-  />
+        {/* Outer frame */}
+        <rect
+          x="15"
+          y="10"
+          width="60"
+          height="70"
+          rx="8"
+          stroke="currentColor"
+          strokeWidth="3"
+          fill="none"
+        />
 
-  {/* Inner screen */}
-  <rect
-    x="25"
-    y="20"
-    width="40"
-    height="40"
-    rx="5"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    fill="none"
-  />
+        {/* Inner screen */}
+        <rect
+          x="25"
+          y="20"
+          width="40"
+          height="40"
+          rx="5"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          fill="none"
+        />
 
-  {/* kWh label */}
-  <text
-    x="45"
-    y="32"
-    textAnchor="middle"
-    fontSize="6"
-    fill="currentColor"
-    fontWeight="bold"
-  >
-    kW-h
-  </text>
+        {/* kWh label */}
+        <text
+          x="45"
+          y="32"
+          textAnchor="middle"
+          fontSize="6"
+          fill="currentColor"
+          fontWeight="bold"
+        >
+          kW-h
+        </text>
 
-  {/* Meter reading boxes */}
-  <rect x="28" y="36" width="6" height="8" fill="currentColor" />
-  <rect x="36" y="36" width="6" height="8" fill="currentColor" />
-  <rect x="44" y="36" width="6" height="8" fill="currentColor" />
-  <rect x="52" y="36" width="6" height="8" fill="currentColor" />
+        {/* Meter reading boxes */}
+        <rect x="28" y="36" width="6" height="8" fill="currentColor" />
+        <rect x="36" y="36" width="6" height="8" fill="currentColor" />
+        <rect x="44" y="36" width="6" height="8" fill="currentColor" />
+        <rect x="52" y="36" width="6" height="8" fill="currentColor" />
 
-  {/* Indicator dots */}
-  <circle cx="35" cy="52" r="2" fill="currentColor" />
-  <circle cx="45" cy="52" r="2" fill="currentColor" />
-  <circle cx="55" cy="52" r="2" fill="currentColor" />
+        {/* Indicator dots */}
+        <circle cx="35" cy="52" r="2" fill="currentColor" />
+        <circle cx="45" cy="52" r="2" fill="currentColor" />
+        <circle cx="55" cy="52" r="2" fill="currentColor" />
 
-  {/* Bottom base */}
-  <rect
-    x="25"
-    y="80"
-    width="40"
-    height="12"
-    rx="3"
-    fill="currentColor"
-  />
+        {/* Bottom base */}
+        <rect
+          x="25"
+          y="80"
+          width="40"
+          height="12"
+          rx="3"
+          fill="currentColor"
+        />
 
-  {/* Small connector */}
-  <rect
-    x="38"
-    y="92"
-    width="14"
-    height="5"
-    fill="currentColor"
-  />
+        {/* Small connector */}
+        <rect
+          x="38"
+          y="92"
+          width="14"
+          height="5"
+          fill="currentColor"
+        />
 
-  {/* Legs */}
-  <rect x="30" y="100" width="6" height="10" fill="currentColor" />
-  <rect x="54" y="100" width="6" height="10" fill="currentColor" />
-  <rect x="30" y="112" width="6" height="10" fill="currentColor" />
-  <rect x="54" y="112" width="6" height="10" fill="currentColor" />
+        {/* Legs */}
+        <rect x="30" y="100" width="6" height="10" fill="currentColor" />
+        <rect x="54" y="100" width="6" height="10" fill="currentColor" />
+        <rect x="30" y="112" width="6" height="10" fill="currentColor" />
+        <rect x="54" y="112" width="6" height="10" fill="currentColor" />
 
-</g>
+      </g>
 
       {/* 2. Main Brand Group */}
       <g transform="translate(90, 75)">
@@ -158,7 +158,7 @@ const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "", isScrolled 
           }}
           className="fill-gray-900 dark:fill-white"
         >
-          ken 
+          ken
         </text>
 
         {/* "Pap" */}
@@ -173,7 +173,7 @@ const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "", isScrolled 
           }}
           className="fill-amber-500 dark:fill-blue-400"
         >
-            Pap
+          Pap
         </text>
       </g>
 
