@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, X, CheckCircle2, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services, CityMapImage } from "@/data";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 type Service = (typeof services)[number];
 
@@ -63,13 +63,13 @@ const DetailCard: React.FC<{
 
   const panelCls =
     "absolute top-0 right-0 h-full w-[340px] z-30 flex flex-col overflow-y-auto " +
-    "bg-white/95 dark:bg-slate-900/97 backdrop-blur-xl " +
-    "border-l border-gray-200 dark:border-white/10";
+    "bg-white dark:bg-gray-950 " +
+    "border-l border-gray-200 dark:border-white/20 shadow-2xl";
 
   const cardCls =
     "w-full rounded-2xl border shadow-xl flex flex-col overflow-hidden " +
-    "bg-white dark:bg-slate-800/90 " +
-    "border-gray-200 dark:border-white/10";
+    "bg-white dark:bg-gray-900 " +
+    "border-gray-200 dark:border-white/20";
 
   return (
     <motion.div
@@ -81,7 +81,7 @@ const DetailCard: React.FC<{
       className={variant === "panel" ? panelCls : cardCls}
     >
       {/* ── Header ── */}
-      <div className="relative p-4 pb-3 flex-shrink-0 border-b border-gray-100 dark:border-white/10">
+      <div className="relative p-4 pb-3 flex-shrink-0 border-b border-gray-100 dark:border-white/15">
         {/* Green accent bar */}
         <div className="absolute top-0 left-0 w-1 h-full bg-green-500 rounded-l" />
 
@@ -119,14 +119,14 @@ const DetailCard: React.FC<{
 
       {/* ── Body ── */}
       <div className="p-4 flex flex-col gap-4">
-        <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-100">
           {service.description}
         </p>
 
         {/* Highlights */}
         <div>
           <h4 className="text-[10px] font-black uppercase tracking-widest mb-2.5
-            flex items-center gap-2 text-gray-800 dark:text-white">
+            flex items-center gap-2 text-gray-800 dark:text-gray-100">
             <span className="h-[2px] w-3 bg-green-500 inline-block" />
             Key Capabilities
           </h4>
@@ -137,7 +137,7 @@ const DetailCard: React.FC<{
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.04 * i, duration: 0.22 }}
-                className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+                className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-200"
               >
                 <CheckCircle2 className="w-3.5 h-3.5 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" />
                 {item}
@@ -300,7 +300,7 @@ const ServicesSection: React.FC = () => {
           {/* Detail card — stacks below map */}
           <AnimatePresence mode="wait">
             {activeService && (
-              <div className="p-3 bg-gray-50 dark:bg-slate-900/60">
+              <div className="p-3 bg-gray-50 dark:bg-gray-950">
                 <DetailCard
                   service={activeService}
                   onClose={handleClose}
