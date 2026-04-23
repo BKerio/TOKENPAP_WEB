@@ -2,12 +2,12 @@
 import React, { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { services } from "@/data";
 
 const SolutionDetail: React.FC = () => {
   const { solutionId } = useParams<{ solutionId: string }>();
-  
+
   // Find the service based on the URL path
   const service = services.find(s => s.path.split("/").pop() === solutionId);
 
@@ -44,7 +44,7 @@ const SolutionDetail: React.FC = () => {
               <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 leading-relaxed max-w-xl">
                 {service.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
@@ -90,11 +90,11 @@ const SolutionDetail: React.FC = () => {
                 <span className="text-emerald-600">Technical Features</span>
               </h2>
               <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
-                Our {service.zone} solutions are engineered to handle industrial-scale utility complexities while providing 
-                a seamless user experience for both administrators and end-users. Access granular data, 
+                Our {service.zone} solutions are engineered to handle industrial-scale utility complexities while providing
+                a seamless user experience for both administrators and end-users. Access granular data,
                 automate billing, and ensure 100% revenue recovery.
               </p>
-              
+
               <div className="p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-white/5 shadow-sm">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
@@ -146,7 +146,7 @@ const SolutionDetail: React.FC = () => {
               Ready to modernize <br /> your utility system?
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
-              Our engineering team is ready to help you deploy a custom-tailored {service.zone} solution 
+              Our engineering team is ready to help you deploy a custom-tailored {service.zone} solution
               that fits your specific infrastructure needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

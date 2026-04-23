@@ -29,82 +29,69 @@ const TokenPapLogo: React.FC<TokenPapLogoProps> = ({ className = "" }) => {
       </defs>
 
       Electricity Pylon
-      {/* Electricity Meter Icon */}
-      <g className="text-gray-900 dark:text-white transition-colors duration-300">
+      {/* Circular Smart Meter Icon */}
+<g className="text-gray-900 dark:text-white transition-colors duration-300">
 
-        {/* Outer frame */}
-        <rect
-          x="15"
-          y="10"
-          width="60"
-          height="70"
-          rx="8"
-          stroke="currentColor"
-          strokeWidth="3"
-          fill="none"
-        />
+  {/* Outer circle */}
+  <circle
+    cx="45"
+    cy="55"
+    r="35"
+    stroke="currentColor"
+    strokeWidth="3"
+    fill="none"
+  />
 
-        {/* Inner screen */}
-        <rect
-          x="25"
-          y="20"
-          width="40"
-          height="40"
-          rx="5"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          fill="none"
-        />
+  {/* Inner blue segment */}
+  <path
+    d="M45 55 L75 55 A30 30 0 0 1 30 80 Z"
+    fill="currentColor"
+    opacity="0.2"
+  />
 
-        {/* kWh label */}
-        <text
-          x="45"
-          y="32"
-          textAnchor="middle"
-          fontSize="6"
-          fill="currentColor"
-          fontWeight="bold"
-        >
-          kW-h
-        </text>
+  {/* Digital display */}
+  <rect
+    x="30"
+    y="35"
+    width="30"
+    height="12"
+    rx="2"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+  />
 
-        {/* Meter reading boxes */}
-        <rect x="28" y="36" width="6" height="8" fill="currentColor" />
-        <rect x="36" y="36" width="6" height="8" fill="currentColor" />
-        <rect x="44" y="36" width="6" height="8" fill="currentColor" />
-        <rect x="52" y="36" width="6" height="8" fill="currentColor" />
+  {/* Digits */}
+  <text
+    x="45"
+    y="44"
+    textAnchor="middle"
+    fontSize="8"
+    fill="currentColor"
+    fontWeight="bold"
+  >
+    09882
+  </text>
 
-        {/* Indicator dots */}
-        <circle cx="35" cy="52" r="2" fill="currentColor" />
-        <circle cx="45" cy="52" r="2" fill="currentColor" />
-        <circle cx="55" cy="52" r="2" fill="currentColor" />
+  {/* Barcode base */}
+  <rect
+    x="28"
+    y="50"
+    width="34"
+    height="10"
+    fill="fill-amber-500 dark:fill-blue-400"
+    stroke="fill-blue-400 dark:fill-amber-500"
+    strokeWidth="1.5"
+  />
 
-        {/* Bottom base */}
-        <rect
-          x="25"
-          y="80"
-          width="40"
-          height="12"
-          rx="3"
-          fill="currentColor"
-        />
+  {/* Barcode lines */}
+  <path
+    d="M30 50 V60 M33 50 V60 M36 50 V60 M40 50 V60 M44 50 V60 M48 50 V60 M52 50 V60 M56 50 V60 M59 50 V60"
+    stroke="currentColor"
+    strokeWidth="1"
+  />
 
-        {/* Small connector */}
-        <rect
-          x="38"
-          y="92"
-          width="14"
-          height="5"
-          fill="currentColor"
-        />
-
-        {/* Legs */}
-        <rect x="30" y="100" width="6" height="10" fill="currentColor" />
-        <rect x="54" y="100" width="6" height="10" fill="currentColor" />
-        <rect x="30" y="112" width="6" height="10" fill="currentColor" />
-        <rect x="54" y="112" width="6" height="10" fill="currentColor" />
-
-      </g>
+</g>
 
       {/* 2. Main Brand Group */}
       <g transform="translate(90, 75)">

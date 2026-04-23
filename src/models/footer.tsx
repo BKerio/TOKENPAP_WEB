@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Youtube, 
-  ChevronUp,
-  MapPin,
-  Phone,
-  Mail
-} from "lucide-react";
+import {   Facebook, Twitter, Linkedin, Youtube, ChevronUp, MapPin, Phone, Mail } from "lucide-react";
+import TokenPapLogo from "@/components/TokenPapLogo";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -30,10 +22,8 @@ const Footer: React.FC = () => {
           
           {/* Column 1: Mission & News */}
           <div className="space-y-8">
-            <Link to="/" className="inline-block group">
-              <span className="text-3xl font-black text-white tracking-tighter uppercase transition-colors group-hover:text-emerald-500">
-                TokenPap
-              </span>
+            <Link to="/" className="block mb-6 h-12">
+              <TokenPapLogo className="h-full w-auto" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs text-gray-400">
                Smart Metering & Vending Solution
