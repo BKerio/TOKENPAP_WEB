@@ -91,7 +91,7 @@ const GetStartedSection: React.FC = () => {
           className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 border-t border-gray-200 dark:border-white/5 pt-8 w-full"
         >
           <p className="text-xs text-gray-400 dark:text-gray-600 tracking-wider uppercase">
-            Need help? —{" "}
+            Need help? - {" "}
             <a
               href="/contact"
               className="text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors underline underline-offset-4"
