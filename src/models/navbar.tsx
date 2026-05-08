@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRightFromCircle, ChevronDownCircle, DownloadIcon, Search, Mail, Phone } from "lucide-react";
+import { Menu, X, ArrowUpRightFromCircle, ChevronDownCircle, Search, Mail, Phone } from "lucide-react";
 import { ThemeToggle } from "@/models/theme-toggle";
 import SearchModal from "@/components/SearchModal";
 import { Button } from "@/models/ui/button";
