@@ -419,24 +419,6 @@ const Navbar = () => {
             onClick={closeAllMenus}
             className="fixed inset-0 top-[var(--total-header-height)] z-40 bg-black/50 flex items-center justify-center p-4"
           >
-            <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              onClick={e => e.stopPropagation()}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-sm text-center"
-            >
-              <p className="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200">Download Profile</p>
-              <a
-                href="/company_profile.pdf"
-                download="TokenPap Business Profile.pdf"
-                onClick={closeAllMenus}
-                className="inline-flex items-center justify-center px-4 py-2 w-full rounded-md text-base font-semibold bg-red-600 hover:bg-red-700 text-white transition-colors"
-              >
-                <DownloadIcon className="mr-2 h-5 w-5" /> Download PDF
-              </a>
-              <Button onClick={closeAllMenus} className="w-full mt-4">Close</Button>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
