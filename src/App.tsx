@@ -8,7 +8,6 @@ import Navbar from "@/models/navbar";
 import Footer from "@/models/footer";
 import Home from "@/pages/home";
 import About from "@/pages/about";
-import TeamStructure from "@/pages/teamstructure";
 import Solutions from "@/pages/solutions";
 import Contact from "@/pages/contact";
 import FloatingSidebar from "@/components/FloatingSidebar";
@@ -52,7 +51,6 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/teamstructure" element={<TeamStructure />} />
                 <Route path="/solutions" element={<Solutions />} />
                 {/**path for contact */}
                 <Route path="/contact" element={<Contact />} />
