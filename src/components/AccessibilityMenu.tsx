@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAccessibility } from '../lib/AccessibilityContext';
+import { useAccessibility } from '@/lib/AccessibilityContext';
 import { useTheme } from '@/models/theme-provider';
 import { 
   Accessibility, 
