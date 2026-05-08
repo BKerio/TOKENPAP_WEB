@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Award, Gem, Shield, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 type CommandEntry = {
   command: string;
