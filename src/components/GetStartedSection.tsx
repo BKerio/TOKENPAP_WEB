@@ -45,7 +45,7 @@ const GetStartedSection: React.FC = () => {
             Get Started
           </h2>
           <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm max-w-md mx-auto leading-relaxed">
-            Manage your account, top up utility tokens, or shop for smart meters — all in seconds.
+            Manage your account, top up utility tokens, or shop for smart meters - all in seconds.
           </p>
         </motion.div>
 
