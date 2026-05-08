@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Target, Users, Globe } from "lucide-react";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 const CompanyMetricsSection: React.FC = () => {
   const stats = [
