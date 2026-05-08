@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { partnersList } from "@/data";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 const PartnersSection: React.FC = () => {
   const itemWidth = 140; // Reduced width of each partner card
